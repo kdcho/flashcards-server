@@ -1,16 +1,5 @@
 [
     {
-        "title": "FOO BAR BAZ",
-        "question": "Wie füge ich ein Element über einem anderen Element ein?",
-        "answer": ".insertAdjacentElement(position, element)",
-        "tags": [
-            "javascript",
-            "basics"
-        ],
-        "doPractice": true,
-        "id": "17t6a41"
-    },
-    {
         "title": "HTML-Element erzeugen",
         "question": "Wie erzeuge ich ein neues HTML-Element in JavaScript?",
         "answer": "document.createElement('div')",
@@ -19,7 +8,7 @@
             "basics"
         ],
         "isBookmarked": true,
-        "id": "tnymkty"
+        "id": "6hq6qcp"
     },
     {
         "title": "HTML-Element einfügen 1",
@@ -30,7 +19,7 @@
             "basics"
         ],
         "doPractice": true,
-        "id": "tgorjs7"
+        "id": "lug1qwu"
     },
     {
         "title": "HTML-Element einfügen 2",
@@ -41,7 +30,7 @@
             "basics"
         ],
         "isBookmarked": true,
-        "id": "mm80499"
+        "id": "1broppf"
     },
     {
         "title": "Array: Elemente ausloggen",
@@ -51,7 +40,7 @@
             "javascript",
             "basics"
         ],
-        "id": "n6sj7kl"
+        "id": "3fu7f6j"
     },
     {
         "title": "CSS - Style 1",
@@ -61,7 +50,7 @@
             "javascript",
             "basics"
         ],
-        "id": "6tmck60"
+        "id": "vlkjy3d"
     },
     {
         "title": "querySelector 1",
@@ -71,7 +60,7 @@
             "javascript",
             "basics"
         ],
-        "id": "o2ju0n1"
+        "id": "cs32nkt"
     },
     {
         "title": "querySelector 2",
@@ -81,7 +70,7 @@
             "javascript",
             "basics"
         ],
-        "id": "jiuklv0"
+        "id": "yt88mc2"
     },
     {
         "title": "innerHTML",
@@ -91,7 +80,7 @@
             "javascript",
             "basics"
         ],
-        "id": "ysdyv9p"
+        "id": "5its1jo"
     },
     {
         "title": "HTML-Element einfügen 3",
@@ -101,7 +90,7 @@
             "javascript",
             "basics"
         ],
-        "id": "uwbw0f4"
+        "id": "oy27qgi"
     },
     {
         "title": "Submit",
@@ -111,6 +100,6 @@
             "javascript",
             "basics"
         ],
-        "id": "ei3wx8d"
+        "id": "vpnq607"
     }
 ]
