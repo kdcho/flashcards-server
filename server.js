@@ -1,18 +1,10 @@
-const fs = require('fs')
+const mongoose = require('mongoose')
+const Card = require('./models/Card')
 const express = require('express')
-const uid = require('uid')
 
-let cards = require('./cards.json')
-
-function reloadFile(cards, res, output) {
-  fs.writeFile('./cards.json', JSON.stringify(cards, null, 2), err => {
-    if (err) {
-      res.end('Error: could not write file.')
-    } else {
-      res.json(output)
-    }
-  })
-}
+mongoose.connect('mongodb://localhost:27017/flashcards', {
+  useNewUrlParser: true
+})
 
 const app = express()
 app.use(express.json())
@@ -20,31 +12,37 @@ app.use(express.json())
 app.listen(3334, () => console.log('Express ready'))
 
 app.get('/cards', (req, res) => {
-  res.json(cards)
+  Card.find()
+    .then(card => res.json(card))
+    .catch(err => res.end(err))
 })
 
 app.get('/cards/:id', (req, res) => {
-  const id = req.params.id
-  card = cards.find(card => card.id === id)
-  res.json(card)
+  Card.findById(req.params.id)
+    .then(card => res.json(card))
+    .catch(err => res.json(err))
 })
 
 app.post('/cards', (req, res) => {
-  const newCard = { ...req.body, id: uid() }
-  cards = [newCard, ...cards]
-  reloadFile(cards, res, newCard)
+  Card.create(req.body)
+    .then(card => res.json(card))
+    .catch(err => res.json(err))
+
+  /*   const card = new Card(req.body)
+  card
+    .save()
+    .then(card => res.json(card))
+    .catch(err => res.json(err)) */
 })
 
 app.patch('/cards/:id', (req, res) => {
-  index = cards.findIndex(card => card.id === req.params.id)
-  card = { ...cards[index], ...req.body }
-  cards[index] = card
-  reloadFile(cards, res, card)
+  Card.findByIdAndUpdate(req.params.id, req.body, { new: true })
+    .then(card => res.json(card))
+    .catch(err => res.json(err))
 })
 
 app.delete('/cards/:id', (req, res) => {
-  const id = req.params.id
-  index = cards.findIndex(card => card.id === id)
-  cards = cards.filter(card => card.id !== id)
-  reloadFile(cards, res, cards[index])
+  Card.findByIdAndDelete(req.params.id)
+    .then(card => res.json(card))
+    .catch(err => res.json(err))
 })
